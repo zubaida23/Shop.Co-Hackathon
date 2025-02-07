@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
-import Header from "@/components/Header"
+import Header from "@/components/Header";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
+import localFont from "next/font/local";
 
-
-import './globals.css';
+// Font import using next/font
+const geistFont = localFont({
+  src: "../public/fonts/GeistMonoVF.woff2",
+  display: "swap",
+});
 
 export const metadata = {
   title: 'Hackathon Project',
@@ -18,22 +20,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="/fonts/GeistMonoVF.woff2"
-          type="font/woff2"
-        />
-      </head>
-      <body>
-      <CartProvider>
-        <WishlistProvider>
-        <Announcement/>
-        <Header/>
-        {children}
-        </WishlistProvider>
+      <body className={geistFont.className}>
+        <CartProvider>
+          <WishlistProvider>
+            <Announcement />
+            <Header />
+            {children}
+          </WishlistProvider>
         </CartProvider>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
