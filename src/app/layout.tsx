@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
 import localFont from "next/font/local";
+import "/fonts/GeistMonoVF.woff2";
+
 
 // Font import using next/font
 const geistFont = localFont({
